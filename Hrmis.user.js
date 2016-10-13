@@ -6,7 +6,7 @@
 // @author       You
 // @match        http://inner-portal.ccs.org.cn/hrmis/exam/exam!examOnline.do?className=*
 // @grant        none
-// @updateURL    
+// @updateURL    https://github.com/last2003/hrmis/raw/master/Hrmis.user.js
 // ==/UserScript==
 
 (function() {
