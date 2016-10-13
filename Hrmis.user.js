@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hrmis
 // @namespace    http://inner-portal.ccs.org.cn/hrmis/
-// @version      0.2(20161013)
+// @version      0.3(20161013)
 // @description  Just for fun!
 // @author       You
 // @match        http://inner-portal.ccs.org.cn/hrmis/exam/exam!examOnline.do?className=*
