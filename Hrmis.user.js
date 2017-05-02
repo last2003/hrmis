@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hrmis
 // @namespace    http://inner-portal.ccs.org.cn/hrmis/
-// @version      0.6(20161013)
+// @version      0.7(20170502)
 // @description  Just for fun!
 // @author       You
 // @match        http://inner-portal.ccs.org.cn/hrmis/exam/exam!examOnline.do?className=*
@@ -15,6 +15,7 @@
     // Your code here...
     var results=[];
     var url=window.location.href.replace(/examOnline/,"examResult");//考试结果连接
+    var hasGetResultsOnce=false;//20170502
 
     function addText(innerHtml){
         //添加内容到页面
@@ -34,6 +35,9 @@
     }
 
     function getResults(){
+        if(hasGetResultsOnce){//20170502
+            return;
+        }
         $.get(url,function(data,status){
             $(data).find('div.subject').each(function(){
                 if($(this).find('p')){
@@ -50,6 +54,7 @@
                 addText('加载失败');
             }
         },'html');
+        hasGetResultsOnce=true;//20170502
     }
 
     function makeDiv(sub,options){
