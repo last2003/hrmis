@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hrmis
 // @namespace    http://inner-portal.ccs.org.cn/hrmis/
-// @version      0.7(20170502)
+// @version      20170503
 // @description  Just for fun!
 // @author       You
 // @match        http://inner-portal.ccs.org.cn/hrmis/exam/exam!examOnline.do?className=*
@@ -76,7 +76,7 @@
         let resultsHtml='';
 
         if($("iframe#answerFrame").contents().find("div.subject")){
-            let sub=$("iframe#answerFrame").contents().find("div.subject").find("h5").text().replace(/\(\d{1,2}.0分\)/,"").trim();
+            let sub=$("iframe#answerFrame").contents().find("div.subject").find("h5").text().replace(/\(\d{1,2}.\d{1,2}分\)/,"").trim();//20170503
             console.log(sub);
             for(var i=0;i<results.length;i++){
                 if(sub===results[i].subject){
