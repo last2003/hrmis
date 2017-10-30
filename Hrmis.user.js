@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hrmis
 // @namespace    http://inner-portal.ccs.org.cn/hrmis/
-// @version      20170503
+// @version      20171030
 // @description  Just for fun!
 // @author       You
 // @match        http://inner-portal.ccs.org.cn/hrmis/exam/exam!examOnline.do?className=*
@@ -22,6 +22,11 @@
 
         if($("div#addDiv")){
             $("div#addDiv").remove();
+        }
+        
+        //如果没有内容就提示下，20171030
+        if(innerHtml.length ===0){
+            innerHtml='插件正在运行，请耐心等候...';
         }
 
         let addtext = '<br><div id=addDiv style="margin: 0 auto 0 auto; ' +
@@ -70,14 +75,13 @@
 
     $("iframe#answerFrame").load(function(){
         if(results.length===0){
-            addText('正在加载,请稍等...');
             getResults();
         }
         let resultsHtml='';
 
         if($("iframe#answerFrame").contents().find("div.subject")){
             let sub=$("iframe#answerFrame").contents().find("div.subject").find("h5").text().replace(/\(\d{1,2}.\d{1,2}分\)/,"").trim();//20170503
-            console.log(sub);
+            //console.log(sub);
             for(var i=0;i<results.length;i++){
                 if(sub===results[i].subject){
                     resultsHtml+=makeDiv(sub,results[i].options);
