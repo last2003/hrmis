@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hrmis
 // @namespace    http://inner-portal.ccs.org.cn/hrmis/
-// @version      20171030
+// @version      20180615
 // @description  Just for fun!
 // @author       You
 // @match        http://inner-portal.ccs.org.cn/hrmis/exam/exam!examOnline.do?className=*
@@ -54,7 +54,7 @@
                 }
             });
             if(results.length>0){
-                addText('加载成功,可以开始考试了');
+                addText('<span style="color:Yellow;font-weight:bold">加载成功,可以开始考试了</span>');
             }else{
                 addText('加载失败');
             }
